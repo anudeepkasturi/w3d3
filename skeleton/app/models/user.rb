@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
 
-  belongs_to :enrollments,
+  has_many :enrollments,
     class_name: :Enrollment,
-    primary_key: :student_id,
-    foreign_key: :id
+    primary_key: :id,
+    foreign_key: :student_id
 
   has_many :enrolled_courses,
     through: :enrollments,

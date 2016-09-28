@@ -1,13 +1,13 @@
 class Enrollment < ActiveRecord::Base
 
-  has_many :users,
+  belongs_to :users,
     class_name: :User,
-    foreign_key: :id,
-    primary_key: :student_id
+    foreign_key: :student_id,
+    primary_key: :id
 
-  has_many :courses,
+  belongs_to :courses,
     class_name: :Course,
-    foreign_key: :id,
-    primary_key: :course_id
+    foreign_key: :course_id,
+    primary_key: :id
 
 end
