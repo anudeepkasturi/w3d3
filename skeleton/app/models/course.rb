@@ -5,17 +5,6 @@ class Course < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :course_id
 
-  has_many :enrolled_students,
-    through: :enrollments,
-    source: :users
-
-  # def prerequisite
-  #   if self.prereq_id
-  #     Course.find(prereq_id)
-  #   else
-  #     "No prereqs"
-  #   end
-  # end
 
   belongs_to :prerequisite,
     primary_key: :id,
@@ -27,6 +16,17 @@ class Course < ActiveRecord::Base
     foreign_key: :instructor_id,
     class_name: :User
 
+  has_many :enrolled_students,
+    through: :enrollments,
+    source: :users
+
+    # def prerequisite
+    #   if self.prereq_id
+    #     Course.find(prereq_id)
+    #   else
+    #     "No prereqs"
+    #   end
+    # end
 
 
   # def instructor
